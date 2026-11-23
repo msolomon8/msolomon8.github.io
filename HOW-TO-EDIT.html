@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to edit your portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d6d9df;--fg:#12161d;--mut:#454d5c;--line:#b9bfc9;--card:#e4e6eb;--acc:#2059bd}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 Inter,system-ui,sans-serif}
+.wrap{max-width:800px;margin:0 auto;padding:56px 24px 100px}
+h1{font:400 clamp(38px,6vw,58px)/1.05 Fraunces,Georgia,serif;margin:10px 0 14px}
+h1 em{color:var(--acc)}
+h2{font:400 30px Fraunces,Georgia,serif;margin:56px 0 10px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font:600 17px Inter,sans-serif;margin:26px 0 6px}
+.mono{font:12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+code{font:13.5px 'JetBrains Mono',monospace;background:var(--card);padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+pre{font:13.5px/1.6 'JetBrains Mono',monospace;background:#12161d;color:#e4e6eb;padding:18px 20px;border-radius:12px;overflow-x:auto}
+pre .c{color:#8aa0c8}
+.tip{background:var(--card);border-left:4px solid var(--acc);padding:14px 18px;border-radius:8px;margin:18px 0}
+.warn{border-left-color:#c2410c}
+ol li,ul li{margin:6px 0}
+.toc a{color:var(--acc)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="mono">Your portfolio · editing guide</div>
+<h1>How to edit your <em>portfolio</em></h1>
+<p>Everything on the site (text, photos, videos, links) lives in <b>one block of text</b> near the bottom of <code>index.html</code>. You never have to touch the layout code. This guide takes about 10 minutes the first time.</p>
+
+<div class="tip toc"><b>Jump to:</b> <a href="#setup">1 · Set up</a> · <a href="#text">2 · Change text</a> · <a href="#photos">3 · Add photos</a> · <a href="#videos">4 · Add videos</a> · <a href="#projects">5 · Add a project</a> · <a href="#other">6 · Headshot, résumé, colors</a> · <a href="#publish">7 · Put it online</a> · <a href="#fix">8 · If something breaks</a></div>
+
+<h2 id="setup">1 · Set up (once)</h2>
+<ol>
+  <li>Unzip <code>mia-portfolio.zip</code> somewhere you'll keep it, e.g. <code>Documents/GitHub/mia-portfolio</code>.</li>
+  <li>Open the folder in <b>VS Code</b> (File → Open Folder…). You'll see:
+<pre>mia-portfolio/
+├── index.html        <span class="c">← the website (you edit the SITE block)</span>
+├── HOW-TO-EDIT.html  <span class="c">← this guide</span>
+├── images/           <span class="c">← put photos here</span>
+└── videos/           <span class="c">← put short video files here</span></pre></li>
+  <li>To <b>preview</b>, double-click <code>index.html</code> so it opens in Chrome/Safari. After every edit: <b>save</b> (⌘S) in VS Code, then <b>refresh</b> (⌘R) in the browser.</li>
+</ol>
+<div class="tip">Nice-to-have: install the VS Code extension <b>Live Server</b>, right-click <code>index.html</code> → <i>Open with Live Server</i>. The page then refreshes by itself every time you save.</div>
+
+<h2 id="text">2 · Change any text</h2>
+<p>In <code>index.html</code>, press <b>⌘F</b> and search <code>EDIT ME</code>. Everything between that and <code>END OF EDIT ME</code> is your content. It looks like this:</p>
+<pre>tagline: "Mechanical engineering student and varsity swimmer at Tufts...",</pre>
+<p>Just change the words <b>between the quotes</b>. Three rules keep it from breaking:</p>
+<ul>
+  <li>Text stays inside <code>"double quotes"</code>. If you need a quote mark inside the text, use a curly one (<code>’</code> or <code>“ ”</code>).</li>
+  <li>Every line/item in a list ends with a <b>comma</b>.</li>
+  <li>Brackets come in pairs: <code>[ ]</code> for lists, <code>{ }</code> for one project or job.</li>
+</ul>
+<p>Anywhere you see <b>✏️</b> is a placeholder I left for you to fill in (Meyers+ dates and title, the Materials & Manufacturing and Engineering Design project write-ups, LinkedIn URL, and your “What I love” list). I couldn't open your Notion sub-pages, so copy those descriptions over from Notion.</p>
+<p>Long project descriptions are a list of paragraphs. Each <code>"..."</code> becomes its own paragraph in the pop-up:</p>
+<pre>description: [
+  "First paragraph about the project.",
+  "Second paragraph with results.",
+],</pre>
+
+<h2 id="photos">3 · Add photos to a project</h2>
+<ol>
+  <li>Copy your photo files into the <code>images</code> folder. Use simple names with no spaces, like <code>pingpong-setup.jpg</code>.</li>
+  <li>Find the project in the SITE block and add each photo to its <code>media</code> list:
+<pre>media: [
+  "images/pingpong-setup.jpg | Full setup with the LEGO paddle",
+  "images/pingpong-cad.png | CAD of the paddle mount",
+],</pre></li>
+  <li>Save and refresh. The <b>first photo</b> becomes the picture on the project card; clicking the card opens a gallery with all of them.</li>
+</ol>
+<ul>
+  <li>The part after <code>|</code> is an optional caption. Leave it out if you don't want one: <code>"images/pingpong-setup.jpg",</code></li>
+  <li>Want a different card picture than the first gallery photo? Add <code>cover: "images/whatever.jpg",</code> inside that project's <code>{ }</code>.</li>
+  <li>File names are <b>case-sensitive</b> once online: <code>IMG_1234.JPG</code> ≠ <code>img_1234.jpg</code>.</li>
+  <li>Keep photos under ~1–2 MB so the site loads fast. On a Mac: open in Preview → Tools → Adjust Size → width 1600 → Save. iPhone HEIC photos won't show in all browsers; export them as JPG first.</li>
+</ul>
+<div class="tip"><b>Shortcut:</b> open <code>index.html#tools</code> in your browser (add <code>#tools</code> to the end of the address and refresh). Pick your photos/videos there and it writes the lines for you to copy-paste into <code>media: [ ]</code>.</div>
+
+<h2 id="videos">4 · Add videos</h2>
+<p>Videos go in the same <code>media</code> list as photos. Cards with a video automatically get a “▶ video” label. You have three options:</p>
+<table>
+  <tr><th>Option</th><th>What to write</th><th>Best for</th></tr>
+  <tr><td><b>YouTube</b> (recommended)</td><td><code>"https://youtu.be/abc123XYZ | Demo run",</code></td><td>Anything longer than ~20 s. Upload as <i>Unlisted</i> if you don't want it searchable.</td></tr>
+  <tr><td><b>Google Drive</b></td><td><code>"https://drive.google.com/file/d/FILE_ID/view | Demo",</code></td><td>Quick option. Set sharing to “Anyone with the link”.</td></tr>
+  <tr><td><b>Video file</b></td><td><code>"videos/arm-demo.mp4 | Arm tracking",</code></td><td>Short clips (under ~25 MB). Put the file in <code>videos/</code>.</td></tr>
+</table>
+<p>Vimeo links work too. Mix freely:</p>
+<pre>media: [
+  "images/arm-photo.jpg | Final arm",
+  "https://youtu.be/abc123XYZ | Digital twin following the arm",
+  "videos/arm-closeup.mp4 | Encoder knobs",
+],</pre>
+<div class="tip warn"><b>Why YouTube for long videos:</b> GitHub (step 7) rejects files over 100 MB, and big video files make your site slow. iPhone .mov files are often huge, so trim them or upload to YouTube instead.</div>
+
+<h2 id="projects">5 · Add (or remove) a project</h2>
+<p>Each project is one <code>{ ... },</code> block in the <code>projects: [ ]</code> list. Easiest way: copy a whole existing block (from its <code>{</code> to its <code>},</code>), paste it right after, and change the words.</p>
+<pre>{
+  title: "Project name",
+  category: "Mechatronics",          <span class="c">// must match one of the categories list exactly</span>
+  course: "ME 35 · Intro to Robotics",
+  summary: "One or two sentences for the card.",
+  description: [ "Paragraph 1.", "Paragraph 2." ],
+  skills: ["SolidWorks", "Arduino"],
+  media: [ "images/photo1.jpg | caption" ],
+  links: [ { label: "Code on GitHub", url: "https://github.com/..." } ],
+},</pre>
+<ul>
+  <li><b>Order</b> on the page = order in the list. Cut and paste blocks to reorder.</li>
+  <li><b>Remove</b> a project: delete its whole block, including the trailing <code>},</code>.</li>
+  <li><b>Filter buttons</b> come from <code>categories: [ ... ]</code>. Add/rename them there, and make sure each project's <code>category</code> matches one exactly (spelling and capitals).</li>
+  <li>The “Projects” number at the top counts automatically.</li>
+  <li><b>Experience</b> works the same way: copy a <code>{ dates, role, company, text, bullets }</code> block. Put bullet points in <code>bullets: ["Did X", "Did Y"]</code> or leave it as <code>[]</code>.</li>
+</ul>
+
+<h2 id="other">6 · Headshot, résumé, colors</h2>
+<h3>Headshot</h3>
+<p>Put the photo in <code>images/</code>, then set <code>photo: "images/headshot.jpg",</code>. If your face is cut off, adjust <code>photoPosition</code> (e.g. <code>"50% 10%"</code> moves the crop up). On phones it shows as a circle.</p>
+<h3>Résumé button</h3>
+<p>Drop your PDF into the main folder and set <code>resume: "Mia_Solomon_Resume.pdf",</code>. Leave it <code>""</code> to hide the button.</p>
+<h3>Accent color</h3>
+<p>Change <code>accent: "#2059bd",</code> to any hex color. Some that suit the gray background: <code>#0f766e</code> teal, <code>#7c3aed</code> violet, <code>#c2410c</code> burnt orange, <code>#be185d</code> raspberry.</p>
+<h3>Links</h3>
+<p>Fill in your LinkedIn URL under <code>socials</code>. Any social with an empty <code>url: ""</code> is hidden automatically.</p>
+
+<h2 id="publish">7 · Put it online (free, with GitHub Pages)</h2>
+<p>Your site will live at <b>https://msolomon8.github.io</b>.</p>
+<ol>
+  <li>On github.com, click <b>New repository</b>. Name it exactly <code>msolomon8.github.io</code>, set it to <b>Public</b>, and create it.</li>
+  <li>Click <b>uploading an existing file</b>, and drag in <i>everything inside</i> your <code>mia-portfolio</code> folder (index.html, images, videos, résumé). Click <b>Commit changes</b>.</li>
+  <li>Go to <b>Settings → Pages</b>. Under “Build and deployment”, choose <b>Deploy from a branch</b>, branch <b>main</b>, folder <b>/ (root)</b>, and Save.</li>
+  <li>Wait 1–2 minutes and visit <code>https://msolomon8.github.io</code>.</li>
+</ol>
+<p><b>To update later:</b> edit locally, check the preview, then upload the changed files again (Add file → Upload files) or use <b>GitHub Desktop</b> / VS Code's Source Control tab to commit and push. The live site updates in about a minute.</p>
+<div class="tip">If you already have a repo for this, any repo works too. Turn on Pages in its settings and the address becomes <code>https://msolomon8.github.io/REPO-NAME</code>. Then swap the Notion link on your résumé and LinkedIn for the new one.</div>
+
+<h2 id="fix">8 · If something breaks</h2>
+<p><b>The page is blank or stuck</b> → there's almost always a typo in the SITE block. Undo (⌘Z) until it works again, or look for:</p>
+<ul>
+  <li>A missing <b>comma</b> at the end of a line or after a <code>}</code></li>
+  <li>A missing or extra <b>quote</b> (a straight <code>"</code> inside your text). Use <code>’</code> instead.</li>
+  <li>An unmatched <code>[</code> or <code>{</code></li>
+</ul>
+<p>To find the exact line: in Chrome, right-click the page → <b>Inspect</b> → <b>Console</b> tab. The red error shows a line number in <code>index.html</code>.</p>
+<p><b>A photo shows as a broken icon</b> → the file name in <code>media</code> doesn't exactly match the file in <code>images/</code> (check spelling, capitals, and .jpg vs .jpeg vs .png).</p>
+<p><b>Video doesn't play</b> → .mov files from iPhone sometimes don't play in Chrome. Export as .mp4 (QuickTime → File → Export As → 1080p) or use YouTube.</p>
+<p><b>Fonts look plain when offline</b> → normal. The fonts load from Google Fonts when you're online.</p>
+
+</div></body>
+</html>

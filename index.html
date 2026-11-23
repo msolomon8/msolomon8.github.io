@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mia Solomon · Mechanical Engineering Portfolio</title>
+<meta name="description" content="Mechanical engineering portfolio of Mia Solomon, Tufts University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  HI MIA 👋  You only need to edit the  SITE = { ... }  block      ║
+  ║  further down (search for "EDIT ME"). Everything else is layout.  ║
+  ║  Full walkthrough: open HOW-TO-EDIT.html in your browser.         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+
+<style>
+:root{
+  --bg:#d6d9df; --fg:#12161d; --mut:#454d5c; --line:#b9bfc9; --card:#e4e6eb; --acc:#2059bd;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,video{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font:500 18px var(--serif);text-decoration:none}
+nav{display:flex;gap:22px}
+nav a,.mono{font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+nav a{text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--acc)}
+
+/* hero */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.herogrid{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;align-items:center}
+.herogrid.has-photo{grid-template-columns:minmax(0,1fr) 320px}
+h1{font:400 clamp(44px,6.2vw,80px)/1.02 var(--serif);letter-spacing:-.02em;margin:18px 0 24px}
+h1 em{font-style:italic;color:var(--acc)}
+.lead{max-width:600px;font-size:19px;color:var(--mut);margin:0 0 32px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:11px 20px;border:1px solid var(--fg);border-radius:999px;text-decoration:none;font-size:14px;transition:.2s;background:none;color:var(--fg);cursor:pointer;font-family:var(--sans)}
+.btn.p{background:var(--fg);color:var(--bg)}
+.btn:hover{border-color:var(--acc);background:var(--acc);color:#fff}
+.stats{display:flex;gap:40px;margin-top:56px}
+.stats b{display:block;font:400 34px var(--serif)}
+.portrait{margin:0;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:0 22px 44px -26px rgba(18,22,29,.55)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* sections */
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+h2{font:400 clamp(30px,4vw,44px) var(--serif);letter-spacing:-.01em;margin:0}
+h3{font:500 22px/1.25 var(--serif);margin:6px 0 10px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:400 12px var(--mono);padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:none;color:var(--mut);cursor:pointer}
+.chip.on,.chip:hover{border-color:var(--acc);color:var(--acc)}
+
+/* project cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px}
+.card{all:unset;box-sizing:border-box;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 20px 40px -24px rgba(18,22,29,.5)}
+.thumb{aspect-ratio:4/3;background:#cfd3da;overflow:hidden;position:relative}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card:hover .thumb img{transform:scale(1.04)}
+.ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:repeating-linear-gradient(135deg,#d0d4db 0 12px,#c9cdd5 12px 24px);color:var(--mut);font:400 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:12px}
+.ph b{font:400 46px var(--serif);color:var(--acc);letter-spacing:0;text-transform:none}
+.cb{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.cb p{margin:0 0 16px;color:var(--mut);font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.skills span,.love span{font:400 11px var(--mono);padding:3px 9px;border-radius:6px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc)}
+
+/* experience */
+.job{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job h3{margin-top:0}
+.co{color:var(--acc);font-weight:500;margin-bottom:8px}
+.job p{margin:0;color:var(--mut)}
+.job ul{margin:8px 0 0;padding-left:18px;color:var(--mut)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:60px}
+#bio p{margin:0 0 16px;font-size:17px}
+.love{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
+/* contact */
+.contact{text-align:center;padding:100px 0}
+.mail{display:inline-block;font:400 clamp(26px,4.5vw,48px) var(--serif);text-decoration:none;border-bottom:2px solid var(--acc);margin-bottom:30px;word-break:break-all}
+.mail:hover{color:var(--acc)}
+.contact .btns{justify-content:center}
+footer{text-align:center;padding:28px 0 40px}
+
+/* project popup */
+dialog{border:1px solid var(--line);border-radius:18px;padding:0;max-width:min(920px,94vw);width:100%;max-height:92vh;background:var(--bg);color:var(--fg);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+dialog::backdrop{background:rgba(18,22,29,.55);backdrop-filter:blur(4px)}
+.x{position:sticky;top:12px;float:right;margin:12px 12px 0 0;z-index:2;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--bg);font-size:22px;line-height:1;cursor:pointer;color:var(--fg)}
+.x:hover{border-color:var(--acc);color:var(--acc)}
+#dbody{padding:28px 32px 36px}
+#dbody h2{margin:4px 0 14px}
+#dbody .desc p{color:var(--fg);margin:0 0 14px}
+.stage{background:#111;border-radius:12px;overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;margin:18px 0 10px}
+.stage img,.stage video{width:100%;height:100%;object-fit:contain;display:block;background:#111}
+.stage iframe{width:100%;height:100%;border:0}
+.cap{font-size:14px;color:var(--mut);margin:0 0 12px;min-height:1em}
+.strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px}
+.strip button{all:unset;cursor:pointer;flex:0 0 92px;height:68px;border-radius:8px;overflow:hidden;border:2px solid transparent;position:relative;background:#cfd3da}
+.strip button.on{border-color:var(--acc)}
+.strip img,.strip video{width:100%;height:100%;object-fit:cover;display:block}
+.strip .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;background:rgba(0,0,0,.35)}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* helper tool (only shows when the address ends in #tools) */
+#tools textarea{width:100%;font:13px var(--mono);padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);margin-top:8px}
+
+@media (max-width:820px){
+  .herogrid.has-photo{grid-template-columns:minmax(0,1fr);gap:28px}
+  .portrait{order:-1;width:190px;aspect-ratio:1/1;border-radius:50%}
+  .job{grid-template-columns:1fr;gap:6px}
+  .about{grid-template-columns:1fr;gap:36px}
+  nav{gap:14px}
+  .hero{padding:56px 0 56px}
+  #dbody{padding:22px 20px 28px}
+}
+@media (max-width:520px){ nav a:nth-child(2){display:none} }
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><a class="brand" href="#top" id="brand"></a>
+<nav><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap herogrid" id="herogrid">
+  <div>
+    <div class="mono" id="kicker"></div>
+    <h1 id="name"></h1>
+    <p class="lead" id="tagline"></p>
+    <div class="btns"><a class="btn p" href="#projects">View projects</a><a class="btn" id="resume" target="_blank" rel="noopener">Download résumé</a></div>
+    <div class="stats" id="stats"></div>
+  </div>
+  <figure class="portrait" id="portrait" hidden><img id="photo" alt=""></figure>
+</div></div>
+
+<section id="projects"><div class="wrap">
+  <div class="sh"><h2>Projects</h2><div class="filters" id="filters"></div></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="sh"><h2>Experience</h2></div>
+  <div id="jobs"></div>
+</div></section>
+
+<section id="about"><div class="wrap"><div class="about">
+  <div><div class="sh"><h2>About</h2></div><div id="bio"></div></div>
+  <div>
+    <div class="mono">What I'm up to</div><p id="upto" style="margin:8px 0 28px"></p>
+    <div class="mono">Tools &amp; skills</div><div class="love" id="skills" style="margin-bottom:28px"></div>
+    <div class="mono">What I love</div><div class="love" id="love"></div>
+  </div>
+</div></div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <div class="mono">Let's talk</div>
+  <p id="contactline" style="margin:14px 0 22px;color:var(--mut)"></p>
+  <a class="mail" id="mail"></a>
+  <div class="btns" id="sociallinks"></div>
+</div></section>
+
+<!-- Photo/video helper: visit index.html#tools to use it. Hidden otherwise. -->
+<section id="tools" hidden><div class="wrap">
+  <div class="sh"><h2>Media helper</h2><span class="mono">Only visible with #tools in the address</span></div>
+  <p style="color:var(--mut);max-width:720px;margin:0 0 18px">1) Copy your photos into the <b>images</b> folder and videos into the <b>videos</b> folder. 2) Pick them here. 3) Copy the code below and paste it inside a project's <code>media: [ ... ]</code> list. Add a caption by typing <code>| your caption</code> after the file name.</p>
+  <input type="file" id="tf" accept="image/*,video/*" multiple>
+  <div class="mono" style="margin-top:24px">Code to paste <button class="chip" id="copybtn">Copy</button></div>
+  <textarea id="tout" rows="6" readonly placeholder="Choose files above"></textarea>
+</div></section>
+</main>
+<footer class="mono" id="foot"></footer>
+
+<dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div id="dbody"></div></dialog>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   EDIT ME  ·  All of the website's words, photos and videos live here.
+   Rules of thumb:
+     • Keep text inside "quotes". Need a quote inside? use ’ or \"
+     • Every item in a list ends with a comma.
+     • Photos go in images/, videos go in videos/ (same folder as this file).
+     • Media list items can be:
+         "images/robot1.jpg"                          → photo
+         "images/robot1.jpg | My caption here"        → photo + caption
+         "videos/demo.mp4 | Robot driving"            → video file (.mp4 .mov .webm)
+         "https://youtu.be/XXXXXXXX | Demo video"     → YouTube embed
+         "https://vimeo.com/123456"                   → Vimeo embed
+         "https://drive.google.com/file/d/ID/view"    → Google Drive video/photo (must be shared "Anyone with link")
+       The FIRST photo becomes the card picture (or set cover: "images/x.jpg").
+   ════════════════════════════════════════════════════════════════════ */
+const SITE = {
+
+  brand:   "M. Solomon",
+  kicker:  "Mechanical Engineering · Tufts University · Class of 2027",
+  first:   "Mia",            // shown normal
+  last:    "Solomon",        // shown in blue italics
+  tagline: "Mechanical engineering student and varsity swimmer at Tufts University, pursuing mechanical engineering roles in medical devices, robotics, and aerospace.",
+  photo:   "",               // e.g. "images/headshot.jpg"  (leave "" to hide the photo box)
+  photoPosition: "50% 20%",  // move the crop: "left% top%"
+  resume:  "",               // e.g. "Mia_Solomon_Resume.pdf"  (leave "" to hide the button)
+  accent:  "#2059bd",        // the blue. Try "#c2410c" (orange) or "#0f766e" (teal)
+
+  stats: [
+    { label: "Projects",    value: "auto" },
+    { label: "Internships", value: "2" },
+  ],
+
+  categories: ["Medical Devices", "Mechatronics", "AI & Robotics"],
+
+  projects: [
+    {
+      title: "SafeOp Dilator Test Gage Redesign",
+      category: "Medical Devices",
+      course: "ATEC Spine · R&D Intern · Summer 2026",
+      summary: "Redesigned a neuromonitoring dilator test gage to test three dilators at once, replacing a rusting one-at-a-time fixture.",
+      description: [
+        "SafeOp is ATEC’s intraoperative neuromonitoring system, which uses EMG to identify nerves during spine surgery. Its dilators need minimal resistance at the emitter patch and no current leaking along the body. The existing test gage could only test one dilator at a time, its hardware was rusting, and it wasn’t user-friendly.",
+        "I defined needs and wants for a new gage and challenged existing requirements where it made sense. The gage runs 12 V through the dilator and uses two probes, one at the emitter patch and one for leakage, to compare readings.",
+        "I prototyped and tested seven concepts, from individual fixtures for each dilator size to a hinge-and-latch enclosure. The final design is a push-to-open fixture that tests three dilators at once. I switched back to foam contacts after testing showed they performed better electrically.",
+        "I designed and 3D printed the fixture, built the circuit around an Arduino with control code in C++, and troubleshot the electronics with the electrical engineering team. I also ran aging verification testing on SafeOp accessories and built and calibrated additional gages for QC and manufacturing, released through a change order.",
+      ],
+      skills: ["Design requirements", "Iterative prototyping", "3D printing", "Arduino / C++", "Verification testing"],
+      media: [
+        "images/atec_cover.jpg | Redesigned dilator test gage",
+      ],
+      links: [],
+    },
+    {
+      title: "LEGO Color Sorter",
+      category: "Mechatronics",
+      course: "Introductory Robotics · Pair project · Fall 2026",
+      summary: "An ESP32 sorter that classifies LEGO bricks by color with a k-nearest-neighbor model and drives them to the right bin on a rack and pinion.",
+      description: [
+        "The sorter has a training mode that maps color-sensor readings to colors with a k-nearest-neighbor classifier, and a play mode that detects a brick’s color, moves the platform to the matching bin, and pushes it off with a second servo.",
+        "I led the mechanical design: a servo-driven rack and pinion, geared up so the servo’s 180° sweep spins the pinion a full turn. I modeled the gears and rack in Onshape using the gear generator and a custom rack FeatureScript. The housing is laser cut with notched joints, and the gears, rack, platform, bins, and pusher are 3D printed.",
+        "The rack kept shifting off the pinion once loaded, so we added guides that keep it parallel and meshed, then calibrated the servos to line up with each bin.",
+      ],
+      skills: ["Onshape", "Rack & pinion", "Laser cutting", "3D printing", "ESP32", "k-NN"],
+      media: [
+        "images/sorter_1.jpg | Finished sorter",
+        "images/sorter_cad.jpg | Onshape assembly",
+        "images/sorter_2.jpg | Side view with bins",
+        "images/sorter_3.jpg | Electronics inside the laser-cut housing",
+      ],
+      links: [],
+    },
+    {
+      title: "Desktop Pet Treat Dispenser",
+      category: "Mechatronics",
+      course: "Introductory Robotics · Midterm · Individual",
+      summary: "A desktop cat that dispenses a treat when you pet her and rewards finished study sessions.",
+      description: [
+        "A joystick hidden under the cat’s head detects pets, an accelerometer in her body detects desk taps, and a servo-driven tail shows her mood. Ignore her for a minute and she falls asleep; double-tap the desk to start a study timer that ends with a treat.",
+        "I designed the whole cat in Onshape, including a two-piece head that press-fits around the joystick. Treats feed from a hopper into a catch with two slots 180° apart, so each half turn of the encoder DC motor drops exactly one treat. The body is laser cut and the head, tail, and dispenser parts are 3D printed.",
+      ],
+      skills: ["Onshape", "ESP32", "Encoders", "Accelerometer", "Joystick", "Servo"],
+      media: [
+        "images/pet_2.jpg | Finished desktop pet",
+        "images/pet_cad.jpg | Onshape model with hopper and catch",
+        "images/pet_cover.jpg",
+      ],
+      links: [],
+    },
+    {
+      title: "2-DOF Arm, LED Drawing & Digital Twin",
+      category: "Mechatronics",
+      course: "Introductory Robotics · Team projects · Fall 2026",
+      summary: "A two-joint servo arm driven by encoder wheels, then programmed with inverse kinematics to draw with light, then linked to a live Onshape model.",
+      description: [
+        "Part 1: two encoder wheels control the base and distal servos of a 2-DOF arm. I designed the laser-cut box that houses the motors and board.",
+        "Part 2: we added an LED to the end of the arm and drew a 40-point dachshund in a long-exposure photo. I translated the inverse-kinematics equations into code and added a check that every point falls within the arm’s reach.",
+        "Digital twin: in a team of four, we connected two arms to one ESP32 and synced them through an Onshape assembly using the Onshape API, posting one arm’s joint angles to Onshape and reading them back to drive the second arm.",
+      ],
+      skills: ["Inverse kinematics", "Onshape API", "MicroPython", "Servos", "Laser cutting"],
+      media: [
+        "images/arm_cover.jpg | 2-DOF arm with encoder wheels",
+        "images/arm_draw.jpg | Long-exposure LED dachshund",
+        "images/twin_cad.jpg | Onshape digital twin",
+        "images/arm_cad.jpg | Motor box CAD",
+        "images/arm_2.jpg",
+      ],
+      links: [],
+    },
+    {
+      title: "Wii-Style Robotic Ping-Pong",
+      category: "AI & Robotics",
+      course: "AI in Robotics · Midterm",
+      summary: "A ping-pong game played with a LEGO Double Motor as the paddle, against a computer opponent that learns where to aim.",
+      description: [
+        "MediaPipe Pose tracks the player’s arm to find the paddle on the table, the motor’s gyroscope decides whether you actually swung, and an AprilTag on the paddle works like a Wii pointer to pick the level.",
+        "A Q-learning opponent learns where to aim to make you miss. Scores post live over MQTT, and the motor buzzes as haptic feedback when you hit the ball or lose a point.",
+      ],
+      skills: ["Python", "MediaPipe", "IMU", "AprilTags", "Q-learning", "MQTT"],
+      media: [
+        "images/pong_rally.jpg | Mid-rally",
+        "images/pong_start.jpg | AprilTag level select",
+      ],
+      links: [ { label: "Code on GitHub", url: "https://github.com/msolomon8/ME193" } ],
+    },
+  ],
+
+  experience: [
+    {
+      dates: "May – Aug 2026",
+      role: "R&D Advanced Technical Intern",
+      company: "ATEC Spine · Advanced Technology · Carlsbad, CA",
+      text: "Worked on SafeOp intraoperative neuromonitoring for spine surgery.",
+      bullets: [
+        "Redesigned the dilator test gage, from requirements through prototyping to a working fixture that tests three dilators at once.",
+        "Ran aging verification testing on SafeOp accessories with an oscilloscope and a modified SafeOp tablet.",
+        "Built and calibrated additional test gages for QC and manufacturing, released through a change order.",
+      ],
+    },
+    {
+      dates: "May – Aug 2025",
+      role: "Electrical Engineering Intern",
+      company: "Meyers+ Engineers · San Francisco, CA",
+      text: "Assisted consulting engineers at an MEP design firm with receptacle, fire protection, and lighting modifications on construction plans, and learned how California code updates shape design. Worked in Bluebeam and Revit.",
+      bullets: [],
+    },
+  ],
+
+  bio: [
+    "I’m a senior studying Mechanical Engineering with a minor in Economics at Tufts University, originally from the Bay Area. My work spans medical-device test hardware, embedded mechatronics, and robots that combine sensing, control, and learning.",
+    "Outside the lab I swim breaststroke and butterfly for Tufts Varsity Swim & Dive. I also love to bake and to get outdoors, especially surfing and hiking.",
+  ],
+  upto: "Finishing my senior year at Tufts and looking for 2027 mechanical engineering roles.",
+  toolsSkills: ["SolidWorks", "Onshape", "GD&T", "3D printing", "Laser cutting", "Python", "MicroPython", "Arduino / C++", "ESP32"],
+  love: ["Swimming", "Baking", "Surfing", "Hiking"],
+
+  contactLine: "Open to conversations about medical devices, robotics, and mechanical design.",
+  email: "mia.solomon@tufts.edu",
+  socials: [
+    { label: "LinkedIn", url: "" },                       // paste your LinkedIn URL to show this button
+    { label: "GitHub",   url: "https://github.com/msolomon8" },
+  ],
+  footer: "© 2026 Mia Solomon",
+};
+/* ══════════════════ END OF EDIT ME — layout code below ══════════════════ */
+
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function parseMedia(item){
+  const [src, ...rest] = String(item).split("|");
+  const url = src.trim(), cap = rest.join("|").trim();
+  let m;
+  if ((m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/)))
+    return {kind:"embed", url:`https://www.youtube.com/embed/${m[1]}`, thumb:`https://img.youtube.com/vi/${m[1]}/hqdefault.jpg`, cap, video:true};
+  if ((m = url.match(/vimeo\.com\/(\d+)/)))
+    return {kind:"embed", url:`https://player.vimeo.com/video/${m[1]}`, cap, video:true};
+  if ((m = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/)))
+    return {kind:"embed", url:`https://drive.google.com/file/d/${m[1]}/preview`, thumb:`https://drive.google.com/thumbnail?id=${m[1]}&sz=w800`, cap, video:true};
+  if (/\.(mp4|mov|webm|m4v)(\?|$)/i.test(url)) return {kind:"video", url, cap, video:true};
+  return {kind:"img", url, cap};
+}
+const initials = t => t.split(/\s+/).filter(w=>/^[A-Za-z0-9]/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+
+function thumbHTML(p){
+  const media = (p.media||[]).map(parseMedia);
+  const cover = p.cover ? parseMedia(p.cover) : (media.find(m=>m.kind==="img") || media.find(m=>m.thumb) || media.find(m=>m.kind==="video"));
+  if (!cover) return `<div class="ph"><b>${esc(initials(p.title))}</b>photo coming soon</div>`;
+  if (cover.kind==="img") return `<img src="${esc(cover.url)}" alt="${esc(p.title)}" loading="lazy">`;
+  if (cover.thumb) return `<img src="${esc(cover.thumb)}" alt="${esc(p.title)}" loading="lazy">`;
+  return `<video src="${esc(cover.url)}#t=0.5" muted playsinline preload="metadata"></video>`;
+}
+
+function render(){
+  const S = SITE;
+  document.documentElement.style.setProperty("--acc", S.accent || "#2059bd");
+  $("brand").textContent = S.brand;
+  $("kicker").textContent = S.kicker;
+  $("name").innerHTML = `${esc(S.first)} <em>${esc(S.last)}</em>`;
+  $("tagline").textContent = S.tagline;
+  if (S.photo){ $("portrait").hidden=false; $("herogrid").classList.add("has-photo"); $("photo").src=S.photo; $("photo").alt=`${S.first} ${S.last}`; $("photo").style.objectPosition=S.photoPosition||"50% 20%"; }
+  if (S.resume) $("resume").href = S.resume; else $("resume").hidden = true;
+  $("stats").innerHTML = (S.stats||[]).map(s=>`<div><b>${esc(s.value==="auto"?S.projects.length:s.value)}</b><span class="mono">${esc(s.label)}</span></div>`).join("");
+
+  // filters + projects
+  let current = "All";
+  const cats = ["All", ...(S.categories||[])];
+  const drawFilters = () => $("filters").innerHTML = cats.map(c=>`<button class="chip${c===current?" on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  const drawGrid = () => {
+    $("grid").innerHTML = S.projects.map((p,i)=>({p,i})).filter(({p})=>current==="All"||p.category===current).map(({p,i})=>{
+      const hasVid = (p.media||[]).some(m=>parseMedia(m).video);
+      return `<button class="card" data-i="${i}">
+        <div class="thumb">${thumbHTML(p)}</div>
+        <div class="cb"><div class="mono">${esc(p.category)}${hasVid?"  ·  ▶ video":""}</div>
+        <h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p>
+        <div class="skills">${(p.skills||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div></div></button>`;
+    }).join("");
+  };
+  $("filters").onclick = e => { const c=e.target.dataset.c; if(!c) return; current=c; drawFilters(); drawGrid(); };
+  $("grid").onclick = e => { const card=e.target.closest(".card"); if(card) openProject(+card.dataset.i); };
+  drawFilters(); drawGrid();
+
+  $("jobs").innerHTML = (S.experience||[]).map(j=>`<div class="job"><div class="mono">${esc(j.dates)}</div><div>
+     <h3>${esc(j.role)}</h3><div class="co">${esc(j.company)}</div><p>${esc(j.text)}</p>
+     ${(j.bullets||[]).length?`<ul>${j.bullets.map(b=>`<li>${esc(b)}</li>`).join("")}</ul>`:""}</div></div>`).join("");
+
+  $("bio").innerHTML = (S.bio||[]).map(p=>`<p>${esc(p)}</p>`).join("");
+  $("upto").textContent = S.upto;
+  $("skills").innerHTML = (S.toolsSkills||[]).map(s=>`<span>${esc(s)}</span>`).join("");
+  $("love").innerHTML = (S.love||[]).map(s=>`<span>${esc(s)}</span>`).join("");
+  $("contactline").textContent = S.contactLine;
+  $("mail").textContent = S.email; $("mail").href = "mailto:"+S.email;
+  $("sociallinks").innerHTML = (S.socials||[]).filter(s=>s.url).map(s=>`<a class="btn" target="_blank" rel="noopener" href="${esc(s.url)}">${esc(s.label)}</a>`).join("");
+  $("foot").textContent = S.footer;
+  document.title = `${S.first} ${S.last} · Mechanical Engineering Portfolio`;
+}
+
+function openProject(i){
+  const p = SITE.projects[i], media = (p.media||[]).map(parseMedia);
+  const desc = Array.isArray(p.description) ? p.description : [p.description||p.summary];
+  $("dbody").innerHTML = `
+    <div class="mono">${esc(p.category)}${p.course?"  ·  "+esc(p.course):""}</div>
+    <h2>${esc(p.title)}</h2>
+    ${media.length?`<div class="stage" id="stage"></div><p class="cap" id="cap"></p>
+      ${media.length>1?`<div class="strip" id="strip">${media.map((m,k)=>`<button data-k="${k}" aria-label="Show item ${k+1}">${
+        m.kind==="img"?`<img src="${esc(m.url)}" alt="">`: m.thumb?`<img src="${esc(m.thumb)}" alt="">`: m.kind==="video"?`<video src="${esc(m.url)}#t=0.5" muted preload="metadata"></video>`:""
+      }${m.video?`<span class="play">▶</span>`:""}</button>`).join("")}</div>`:""}`:""}
+    <div class="desc">${desc.map(d=>`<p>${esc(d)}</p>`).join("")}</div>
+    <div class="skills">${(p.skills||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+    ${(p.links||[]).length?`<div class="links">${p.links.map(l=>`<a class="btn" target="_blank" rel="noopener" href="${esc(l.url)}">${esc(l.label)} ↗</a>`).join("")}</div>`:""}`;
+  const show = k => {
+    const m = media[k];
+    $("stage").innerHTML = m.kind==="img" ? `<img src="${esc(m.url)}" alt="${esc(m.cap||p.title)}">`
+      : m.kind==="video" ? `<video src="${esc(m.url)}" controls playsinline></video>`
+      : `<iframe src="${esc(m.url)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+    $("cap").textContent = m.cap || "";
+    document.querySelectorAll("#strip button").forEach(b=>b.classList.toggle("on", +b.dataset.k===k));
+  };
+  if (media.length){ show(0); const st=$("strip"); if(st) st.onclick=e=>{const b=e.target.closest("button"); if(b) show(+b.dataset.k);}; }
+  $("dlg").showModal(); $("dlg").scrollTop = 0;
+}
+$("dlg").addEventListener("click", e => { if (e.target === $("dlg")) $("dlg").close(); });
+$("dlg").addEventListener("close", () => { $("dbody").innerHTML = ""; }); // stops videos when closed
+
+// media helper (#tools)
+function toolsVisibility(){ $("tools").hidden = location.hash !== "#tools"; }
+window.addEventListener("hashchange", toolsVisibility); toolsVisibility();
+$("tf").onchange = e => {
+  $("tout").value = [...e.target.files].map(f => `"${/^video\//.test(f.type)?"videos":"images"}/${f.name} | ",`).join("\n");
+};
+$("copybtn").onclick = () => { $("tout").select(); navigator.clipboard?.writeText($("tout").value); $("copybtn").textContent="Copied!"; setTimeout(()=>$("copybtn").textContent="Copy",1500); };
+
+render();
+</script>
+</body>
+</html>
